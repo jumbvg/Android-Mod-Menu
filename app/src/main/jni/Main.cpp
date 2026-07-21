@@ -97,9 +97,24 @@ bool btnPressed = false;
 void Changes(JNIEnv *env, jclass clazz, jobject obj, jint featNum, jstring featName, jint value, jlong Lvalue, jboolean boolean, jstring text) {
 
     switch (featNum) {
-        case 0:
-            // offset, hex
-            PATCH_SWITCH(targetLibName, "0x1079728", "C0 03 5F D6", boolean);
+       case 0: 
+PATCH_SWITCH(targetLibName, "0x1767360", "DD DD DD DD", boolean);
+break;
+      case 1: 
+PATCH_SWITCH(targetLibName, "0x16EFB00", "00 00 00 00", boolean);
+break;
+     case 2: 
+PATCH_SWITCH(targetLibName, "0x178BAF4", "00 00 00 00", boolean);
+break;
+     case 3: 
+PATCH_SWITCH(targetLibName, "0x1789EF4", "00 00 00 00", boolean);
+break;
+     case 4: 
+PATCH_SWITCH(targetLibName, "0x184A770", "01 00 A0 E3", boolean);
+break;
+     case 5: // (Auto Sell)
+PATCH_SWITCH(targetLibName, "0x181BA98", "01 00 A0 E3", boolean);
+break;
             // The patch switch has been returned and reworked:
             // - (active) Dobby-Kitty implementation
             // - reworked KittyMemory implementation
