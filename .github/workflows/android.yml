@@ -20,10 +20,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Install Gradle and Generate Wrapper
+    - name: Install Modern Gradle and Generate Wrapper
       run: |
-        sudo apt-get update && sudo apt-get install -y gradle
-        gradle wrapper
+        wget https://services.gradle.org/distributions/gradle-7.5-bin.zip
+        unzip -q gradle-7.5-bin.zip
+        echo "$PWD/gradle-7.5/bin" >> $GITHUB_PATH
+        gradle wrapper --gradle-version 7.5
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
